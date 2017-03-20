@@ -3,7 +3,7 @@ Software Engineering Team Project
 
 Language: Java
 
-Database: SQL
+Database: MySQL
 
 IDE: IntellIj
 
