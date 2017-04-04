@@ -32,6 +32,7 @@ public class LoginControl implements Initializable {
 
     }
 
+
     public void initialize(URL location, ResourceBundle resources)
     {
         passwordField.setPromptText("Your password");
