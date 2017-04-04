@@ -5,12 +5,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import main.Repository.CMLoginRepository;
 import main.main.Main;
 
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
@@ -27,10 +29,17 @@ public class LoginControl implements Initializable {
     @FXML private RadioButton authorRadio;
     private ToggleGroup group;
 
+    // Logins Repositories
+    private CMLoginRepository CMLRepository;
+    //private AttendantLoginRepository ATLRepository;
+    //private AuthorsLoginRepository AULRepository;
 
-    public LoginControl()
+
+    public LoginControl(CMLoginRepository cmloginRep/*, AttendantLoginRepository atloginrep, AuthorsLoginRepository atuloginrep*/)
     {
-
+        this.CMLRepository = cmloginRep;
+        //this.ATLRepository = atloginrep;
+        //this.AULRepository = atuloginrep;
     }
 
     public void initialize(URL location, ResourceBundle resources)
@@ -71,6 +80,16 @@ public class LoginControl implements Initializable {
                                 // (ar fi o chestie sa returneze in respone valid,
                                 // daca e corecta parola, sau invalid in caz contrar
                                 // (e o verificare pt response mai jos)
+                                try {
+                                    if (CMLRepository.login(userName, password)) {
+                                        showMessage(Alert.AlertType.CONFIRMATION);
+                                        response = 1;
+                                    }
+
+                                }catch(SQLException e) {
+                                    e.printStackTrace();
+                                    //
+                                }
                             }
                             else if (selected.compareTo("Author") == 0)
                             {
