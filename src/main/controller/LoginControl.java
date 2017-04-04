@@ -27,6 +27,7 @@ public class LoginControl implements Initializable {
     @FXML private RadioButton authorRadio;
     private ToggleGroup group;
 
+
     public LoginControl()
     {
 
