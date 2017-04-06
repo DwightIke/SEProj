@@ -7,13 +7,16 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.Database.Database;
-import main.Repository.CMLoginRepository;
 import main.controller.LoginControl;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+
+import main.Repository.CMLoginRepository;
+import main.Repository.AuthorsLoginRepository;
+import main.Repository.AttendantLoginRepository;
 
 /**
  * Created by Dragos on 4/4/2017.
@@ -64,14 +67,14 @@ public class Main extends Application {
             return;
 
         CMLoginRepository cmloginrep = new CMLoginRepository(db.getConnection());
-        //AttendantLoginRepository atloginrep = new AttendantLoginRepository(db.getConnection());
-        //AuthorsLoginRepository atuloginrep = new AuthorsLoginRepository(db.getConnection());
+        AttendantLoginRepository atloginrep = new AttendantLoginRepository(db.getConnection());
+        AuthorsLoginRepository atuloginrep = new AuthorsLoginRepository(db.getConnection());
 
         try {
             String pathToFxml = "src/main/resources/LoginWindow.fxml";
             URL fxmlUrl = new File(pathToFxml).toURI().toURL();
             loader.setLocation(fxmlUrl);
-            LoginControl controlLogin = new LoginControl(cmloginrep/*, atloginrep, atuloginrep*/);
+            LoginControl controlLogin = new LoginControl(cmloginrep, atloginrep, atuloginrep);
             loader.setController(controlLogin);
             rootLayout1 = loader.load();
             Scene scene = new Scene(rootLayout1);

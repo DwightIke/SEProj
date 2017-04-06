@@ -5,15 +5,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import main.Repository.CMLoginRepository;
 import main.main.Main;
 
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import main.Repository.CMLoginRepository;
+import main.Repository.AttendantLoginRepository;
+import main.Repository.AuthorsLoginRepository;
 
 /**
  * Created by Dragos on 4/4/2017.
@@ -31,15 +31,15 @@ public class LoginControl implements Initializable {
 
     // Logins Repositories
     private CMLoginRepository CMLRepository;
-    //private AttendantLoginRepository ATLRepository;
-    //private AuthorsLoginRepository AULRepository;
+    private AttendantLoginRepository ATLRepository;
+    private AuthorsLoginRepository AULRepository;
 
 
-    public LoginControl(CMLoginRepository cmloginRep/*, AttendantLoginRepository atloginrep, AuthorsLoginRepository atuloginrep*/)
+    public LoginControl(CMLoginRepository cmloginRep, AttendantLoginRepository atloginrep, AuthorsLoginRepository atuloginrep)
     {
         this.CMLRepository = cmloginRep;
-        //this.ATLRepository = atloginrep;
-        //this.AULRepository = atuloginrep;
+        this.ATLRepository = atloginrep;
+        this.AULRepository = atuloginrep;
     }
 
     public void initialize(URL location, ResourceBundle resources)
@@ -97,6 +97,16 @@ public class LoginControl implements Initializable {
                                 // (ar fi o chestie sa returneze in respone valid,
                                 // daca e corecta parola, sau invalid in caz contrar
                                 // (e o verificare pt response mai jos)
+                                try {
+                                    if (AULRepository.login(userName, password)) {
+                                        showMessage(Alert.AlertType.CONFIRMATION);
+                                        response = 2;
+                                    }
+
+                                }catch(SQLException e) {
+                                    e.printStackTrace();
+                                    //
+                                }
                             }
                             else if (selected.compareTo("Attendant") == 0)
                             {
@@ -104,6 +114,16 @@ public class LoginControl implements Initializable {
                                 // (ar fi o chestie sa returneze in respone valid,
                                 // daca e corecta parola, sau invalid in caz contrar
                                 // (e o verificare pt response mai jos)
+                                try {
+                                    if (ATLRepository.login(userName, password)) {
+                                        showMessage(Alert.AlertType.CONFIRMATION);
+                                        response = 3;
+                                    }
+
+                                }catch(SQLException e) {
+                                    e.printStackTrace();
+                                    //
+                                }
                             }
                             if (response == 0) {
                                 showErrorMessage("Username sau parola invalida");
