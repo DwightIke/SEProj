@@ -6,14 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import main.main.Main;
+import main.repository.AttendantLoginRepository;
+import main.repository.AuthorsLoginRepository;
+import main.repository.CMLoginRepository;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import main.repository.CMLoginRepository;
-import main.repository.AttendantLoginRepository;
-import main.repository.AuthorsLoginRepository;
 
 /**
  * Created by Dragos on 4/4/2017.
@@ -67,14 +66,14 @@ public class LoginControl implements Initializable {
                     int response = 0;
                     String userName = userField.getText();
                     String password = passwordField.getText();
-                    String selected = group.getSelectedToggle().getUserData().toString();
+                    //String selected = group.getSelectedToggle().getUserData().toString();
                     if (userName == null) {
                         showErrorMessage("Dati un username");
                     } else if (password == null) {
                         showErrorMessage("Dati o parola");
                     } else
                         {
-                            if (selected.compareTo("CM") == 0)
+                            if (cmRadio.isSelected())
                             {
                                 //aici va fi legagura cu repository-ul CM
                                 // (ar fi o chestie sa returneze in respone valid,
@@ -91,7 +90,7 @@ public class LoginControl implements Initializable {
                                     //
                                 }
                             }
-                            else if (selected.compareTo("Author") == 0)
+                            else if (authorRadio.isSelected())
                             {
                                 //aici va fi legagura cu repository-ul author
                                 // (ar fi o chestie sa returneze in respone valid,
@@ -108,7 +107,7 @@ public class LoginControl implements Initializable {
                                     //
                                 }
                             }
-                            else if (selected.compareTo("Attendant") == 0)
+                            else if (attendantRadio.isSelected())
                             {
                                 //aici va fi legagura cu repository-ul attendant
                                 // (ar fi o chestie sa returneze in respone valid,
