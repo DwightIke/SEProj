@@ -11,9 +11,9 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import main.Repository.CMLoginRepository;
-import main.Repository.AttendantLoginRepository;
-import main.Repository.AuthorsLoginRepository;
+import main.repository.CMLoginRepository;
+import main.repository.AttendantLoginRepository;
+import main.repository.AuthorsLoginRepository;
 
 /**
  * Created by Dragos on 4/4/2017.

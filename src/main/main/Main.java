@@ -6,21 +6,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import main.Database.Database;
-import main.controller.LoginControl;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 
-import main.Repository.CMLoginRepository;
-import main.Repository.AuthorsLoginRepository;
-import main.Repository.AttendantLoginRepository;
+import main.repository.CMLoginRepository;
+import main.repository.AuthorsLoginRepository;
+import main.repository.AttendantLoginRepository;
+import main.database.Database;
+import main.controller.LoginControl;
 
 /**
  * Created by Dragos on 4/4/2017.
  */
+
 public class Main extends Application {
     private FXMLLoader loader;
     private FXMLLoader loader2;
