@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 /**
  * Created by Cosmin on 4/4/2017.
  */
-public class CMLoginRepository
+public class CMLoginRepository implements CRUDRepository
 {
     private Connection dbConnection;
     public CMLoginRepository(Connection connection) {

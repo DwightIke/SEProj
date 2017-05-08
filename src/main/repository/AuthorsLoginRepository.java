@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by Cosmin on 4/6/2017.
  */
-public class AuthorsLoginRepository {
+public class AuthorsLoginRepository implements CRUDRepository {
     private Connection dbConnection;
     public AuthorsLoginRepository(Connection connection) {
         this.dbConnection = connection;
