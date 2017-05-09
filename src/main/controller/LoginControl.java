@@ -6,9 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import main.main.Main;
-import main.repository.AttendantLoginRepository;
-import main.repository.AuthorsLoginRepository;
-import main.repository.CMLoginRepository;
+import main.repository.AttendantRepository;
+import main.repository.AuthorsRepository;
+import main.repository.ComiteeRepository;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -29,12 +29,12 @@ public class LoginControl implements Initializable {
     private ToggleGroup group;
 
     // Logins Repositories
-    private CMLoginRepository CMLRepository;
-    private AttendantLoginRepository ATLRepository;
-    private AuthorsLoginRepository AULRepository;
+    private ComiteeRepository CMLRepository;
+    private AttendantRepository ATLRepository;
+    private AuthorsRepository AULRepository;
 
 
-    public LoginControl(CMLoginRepository cmloginRep, AttendantLoginRepository atloginrep, AuthorsLoginRepository atuloginrep)
+    public LoginControl(ComiteeRepository cmloginRep, AttendantRepository atloginrep, AuthorsRepository atuloginrep)
     {
         this.CMLRepository = cmloginRep;
         this.ATLRepository = atloginrep;

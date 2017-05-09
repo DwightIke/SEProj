@@ -8,9 +8,9 @@ import java.sql.SQLException;
 /**
  * Created by Cosmin on 4/6/2017.
  */
-public class AuthorsLoginRepository implements CRUDRepository {
+public class AuthorsRepository implements CRUDRepository {
     private Connection dbConnection;
-    public AuthorsLoginRepository(Connection connection) {
+    public AuthorsRepository(Connection connection) {
         this.dbConnection = connection;
     }
     public boolean login(String user, String password) throws SQLException {

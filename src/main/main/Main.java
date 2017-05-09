@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 
-import main.repository.CMLoginRepository;
-import main.repository.AuthorsLoginRepository;
-import main.repository.AttendantLoginRepository;
+import main.repository.ComiteeRepository;
+import main.repository.AuthorsRepository;
+import main.repository.AttendantRepository;
 import main.database.Database;
 import main.controller.LoginControl;
 
@@ -67,9 +67,9 @@ public class Main extends Application {
         if (!db.startConnection("root", "")) // daca baza de date are user si pass
             return;
 
-        CMLoginRepository cmloginrep = new CMLoginRepository(db.getConnection());
-        AttendantLoginRepository atloginrep = new AttendantLoginRepository(db.getConnection());
-        AuthorsLoginRepository atuloginrep = new AuthorsLoginRepository(db.getConnection());
+        ComiteeRepository cmloginrep = new ComiteeRepository(db.getConnection());
+        AttendantRepository atloginrep = new AttendantRepository(db.getConnection());
+        AuthorsRepository atuloginrep = new AuthorsRepository(db.getConnection());
 
         try {
             String pathToFxml = "src/main/resources/LoginWindow.fxml";
@@ -100,6 +100,11 @@ public class Main extends Application {
     }
 
     private void MainViewCM()
+    {
+
+    }
+
+    private void MainViewReviewer()
     {
 
     }
