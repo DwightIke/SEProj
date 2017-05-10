@@ -6,9 +6,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="AuthorWindow"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="443.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AuthorWindow">
+   <children>
+      <Label layoutX="36.0" layoutY="105.0" text="Abstract Deadline:" />
+      <Label layoutX="35.0" layoutY="141.0" text="Proposal Deadline:" />
+      <Label layoutX="177.0" layoutY="105.0" text="Date1" />
+      <Label layoutX="177.0" layoutY="141.0" text="Date2" />
+      <ComboBox layoutX="33.0" layoutY="20.0" prefHeight="31.0" prefWidth="184.0" promptText="Select a conference" />
+      <ComboBox layoutX="33.0" layoutY="57.0" prefHeight="31.0" prefWidth="184.0" promptText="Select a section" />
+      <Button layoutX="353.0" layoutY="295.0" mnemonicParsing="false" text="Upload file" />
+      <Label layoutX="36.0" layoutY="176.0" text="Proposal name:" />
+      <Label layoutX="36.0" layoutY="218.0" text="Keywords:" />
+      <TextField layoutX="144.0" layoutY="171.0" />
+      <TextField layoutX="144.0" layoutY="213.0" />
+      <TextField layoutX="144.0" layoutY="254.0" />
+      <Label layoutX="35.0" layoutY="259.0" text="Topics:" />
+      <ListView layoutX="353.0" layoutY="16.0" prefHeight="271.0" prefWidth="231.0" />
+      <Label layoutX="35.0" layoutY="300.0" />
+      <Button layoutX="33.0" layoutY="295.0" mnemonicParsing="false" text="Add author" />
+      <Button layoutX="144.0" layoutY="380.0" mnemonicParsing="false" text="Confirm" />
+      <TextField layoutX="144.0" layoutY="335.0" />
+      <Label layoutX="36.0" layoutY="340.0" text="Author name:" />
+   </children>
 </AnchorPane>
