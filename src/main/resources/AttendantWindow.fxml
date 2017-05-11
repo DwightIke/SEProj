@@ -9,6 +9,7 @@
        <Label layoutX="27.0" layoutY="334.0" prefHeight="32.0" prefWidth="55.0" text="test label " />
        <ComboBox layoutX="33.0" layoutY="20.0" prefHeight="31.0" prefWidth="184.0" promptText="Select a conference" />
        <ComboBox layoutX="33.0" layoutY="57.0" prefHeight="31.0" prefWidth="184.0" promptText="Select a section" />
-       <Label layoutX="35.0" layoutY="105.0" text="Presentation Date?:" />
+       <Label layoutX="35.0" layoutY="105.0" text="Presentation Date?: " />
+       
    </children>
 </AnchorPane>
