@@ -9,6 +9,7 @@ import main.main.Main;
 import main.repository.AttendantRepository;
 import main.repository.AuthorsRepository;
 import main.repository.ComiteeRepository;
+import main.repository.ReviewerRepository;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -23,7 +24,7 @@ public class LoginControl implements Initializable {
     private TextField userField;
     @FXML private PasswordField passwordField;
     @FXML private Button loginButton;
-    @FXML private RadioButton cmRadio;
+    @FXML private RadioButton cmRadio, reviewRadio;
     @FXML private RadioButton attendantRadio;
     @FXML private RadioButton authorRadio;
     private ToggleGroup group;
@@ -32,13 +33,15 @@ public class LoginControl implements Initializable {
     private ComiteeRepository CMLRepository;
     private AttendantRepository ATLRepository;
     private AuthorsRepository AULRepository;
+    private ReviewerRepository RVWRepo;
 
 
-    public LoginControl(ComiteeRepository cmloginRep, AttendantRepository atloginrep, AuthorsRepository atuloginrep)
+    public LoginControl(ComiteeRepository cmloginRep, AttendantRepository atloginrep, AuthorsRepository atuloginrep, ReviewerRepository RVWRepo)
     {
         this.CMLRepository = cmloginRep;
         this.ATLRepository = atloginrep;
         this.AULRepository = atuloginrep;
+        this.RVWRepo = RVWRepo;
     }
 
     public void initialize(URL location, ResourceBundle resources)
@@ -79,15 +82,26 @@ public class LoginControl implements Initializable {
                                 // (ar fi o chestie sa returneze in respone valid,
                                 // daca e corecta parola, sau invalid in caz contrar
                                 // (e o verificare pt response mai jos)
-                                try {
-                                    if (CMLRepository.login(userName, password)) {
-                                        showMessage(Alert.AlertType.CONFIRMATION);
-                                        response = 1;
+                                if(reviewRadio.isSelected()){
+                                    try{
+                                        if(RVWRepo.login(userName, password)){
+                                            response = 4;
+                                        }
+                                    }catch(SQLException ex){
+                                        ex.printStackTrace();
                                     }
+                                }
+                                else {
+                                    try {
+                                        if (CMLRepository.login(userName, password)) {
+                                            showMessage(Alert.AlertType.CONFIRMATION);
+                                            response = 1;
+                                        }
 
-                                }catch(SQLException e) {
-                                    e.printStackTrace();
-                                    //
+                                    } catch (SQLException e) {
+                                        e.printStackTrace();
+                                        //
+                                    }
                                 }
                             }
                             else if (authorRadio.isSelected())
@@ -130,7 +144,13 @@ public class LoginControl implements Initializable {
                             }
                             else
                             {
-                                loginManager.authenticated(response);
+                                try {
+                                    loginManager.authenticated(response);
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
+                                } catch (ClassNotFoundException e) {
+                                    e.printStackTrace();
+                                }
                             }
                     }
             }
