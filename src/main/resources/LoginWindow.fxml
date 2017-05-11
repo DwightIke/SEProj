@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -14,5 +12,6 @@
       <RadioButton fx:id="attendantRadio" layoutX="262.0" layoutY="190.0" mnemonicParsing="false" text="Attendant" />
       <RadioButton fx:id="cmRadio" layoutX="262.0" layoutY="130.0" mnemonicParsing="false" text="CM" />
       <RadioButton fx:id="authorRadio" layoutX="262.0" layoutY="161.0" mnemonicParsing="false" text="Author" />
+      <RadioButton fx:id="reviewRadio" layoutX="316.0" layoutY="130.0" mnemonicParsing="false" text="Reviewer" />
    </children>
 </AnchorPane>

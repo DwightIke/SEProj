@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ReviewerWindow"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="449.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.ReviewerControl">
+   <children>
+      <TableView prefHeight="449.0" prefWidth="417.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Topic" />
+          <TableColumn prefWidth="75.0" text="Keywords" />
+            <TableColumn prefWidth="75.0" text="FileDoc" />
+            <TableColumn prefWidth="100.0" text="CurrentAccept" />
+            <TableColumn prefWidth="92.0" text="No. of Reviews" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="acceptCB" layoutX="439.0" layoutY="273.0" prefWidth="150.0" />
+      <Button layoutX="480.0" layoutY="72.0" mnemonicParsing="false" text="Open File" />
+      <Label layoutX="495.0" layoutY="247.0" text="Review" />
+   </children>
 </AnchorPane>
