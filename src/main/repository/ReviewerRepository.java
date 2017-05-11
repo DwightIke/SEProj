@@ -19,7 +19,7 @@ public class ReviewerRepository implements CRUDRepository{
         preparedStatement.setString(1, user);
         preparedStatement.setString(2, password);
         ResultSet resultSet = preparedStatement.executeQuery();
-
+        //not saved
         // exista input-uri cu username si password
         if (resultSet.next())
             return true;
