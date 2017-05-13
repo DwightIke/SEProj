@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by Dragos on 5/8/2017.
  */
-public class ReviewerRepository implements CRUDRepository{
+public class ReviewerRepository implements ICRUDRepository {
     private Connection dbConnection;
     public ReviewerRepository(Connection connection) {
         this.dbConnection = connection;

@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 /**
  * Created by Cosmin on 4/4/2017.
  */
-public class ComiteeRepository implements CRUDRepository
+public class ComiteeRepository implements ICRUDRepository
 {
     private Connection dbConnection;
     public ComiteeRepository(Connection connection) {
